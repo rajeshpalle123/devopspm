@@ -1,0 +1,14 @@
+workflows:
+    native-android:
+        name: Native Android
+        instance_type: mac_mini
+        max_build_duration: 60
+        triggering:
+            events:
+                - push
+            branch_patterns:
+                - pattern: master
+                  include: true
+                  source: true
+        scripts:
+                - sudo mvn clean test -DsuiteXmlFile.suiteXmlFiles=/Users/builder/clone/testng.xml
